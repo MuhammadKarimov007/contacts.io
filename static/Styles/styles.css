@@ -1,0 +1,54 @@
+#logo {
+    width: 300px;
+    height: 300px;
+    transform: rotate(-15deg);
+    margin-left: 60px;
+}
+
+.navbar {
+    height: 80px;
+}
+.heading {
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+#login {
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+#login-form {
+    width: 447px;
+}
+
+#heading {
+    font-size: 67px;
+}
+
+#heading-rest {
+    font-size: 57px;
+}
+
+#cloud-image {
+    height: 60px;
+    width: 60px;
+}
+
+#username-placeholder {
+    font-weight: bold;
+}
+.bg-light {
+    color: #e9f5ed;
+}
+#password-placeholder {
+    font-weight: bold;
+}
+
+.input {
+    margin-left: 10px;
+}
+
+#phone_secondary {
+    width: 300px;
+}

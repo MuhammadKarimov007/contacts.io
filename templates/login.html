@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %} PhoneDB - Log In {% endblock %}
+
+{% block main %}
+
+<!-- This is the beginning of the heading -->
+<div class="container-7">
+    <h1 class="heading"><span id="heading">Your Contacts,</span><br>
+        <span id="heading-rest"> seamlessly simplified with Cloud 
+            <img  draggable="false" alt="cloud image" id="cloud-image" src="{{url_for('static', filename='/Image/cloud.jpeg')}}">
+        </span>
+    </h1>
+</div>
+
+<!-- This is the beginning of the logo image and the form -->
+<div class="container" id="login">
+    <div class="row">
+        <!-- Logo image -->
+        <div class="col-lg-4">
+            <img src="{{url_for('static', filename='/Image/logo.png')}}" draggable="false" class="img-fluid" alt="logo of the website" id="logo">
+        </div>
+
+        <!-- Log-in form -->
+        <div class="col-4">
+            <form action="/login" method="post">
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="username" class="form-label"><span id="username-placeholder">Username</span></label>
+                    <input type="text" name="username" class="form-control form-control-lg" id="username" placeholder="John_Harvard" autofocus>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label"><span id="password-placeholder">Password</span></label>
+                    <input type="password" name="password" class="form-control form-control-lg" id="password">
+                </div>
+
+                <!-- Button for submit -->
+                <button type="submit" class="btn btn-lg btn-primary">Log In</button>
+            </form>
+            <p style="margin-bottom: 3px; margin-top: 25px;">New to the website?</p>
+            <a href="/register" class="btn btn-outline-success btn-sm" style="margin-top: 0px;">Sign Up</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

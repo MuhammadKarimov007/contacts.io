@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %} ERROR {% endblock %}
+
+{% block main %}
+
+<div style="display: flex; justify-content: center; margin-bottom: 20px; margin-top: 80px;">
+    <img src="{{url_for('static', filename='/Image/warning.png')}}" width="200" height="200" draggable="false">
+</div>
+
+<div style="display: flex; justify-content: center;">
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">{{ error_title }}</h4>
+        <p>{{ error_explain }}</p>
+        <hr>
+        <button type="button" class="btn btn-primary" onclick="goBack()">Return</button>
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+{% endblock %}

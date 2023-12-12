@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block title %} Contacts {% endblock %}
+
+{% block main %}
+
+<div class="row g-3" style="margin-bottom: 30px; margin-top: 15px;">
+    <div class="col-6" style="margin-left: auto; margin-right: auto;">
+            <form action="/search">
+                <div class="input-group mb-3">
+                    <input type="text" name="q" class="form-control form-control-lg" placeholder="Search by name, last name, or phone" aria-label="Search Contacts" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-dark" type="submit" id="button-addon2">Search</button>
+                </div>
+            </form>
+    </div>
+</div>
+
+{% for row in search_result %}
+    <div class="row g-3" style="margin-bottom: 30px;">
+        <div class="col-6" style="margin-left: auto; margin-right: auto;">
+            <div class="card" style="width: auto;">
+                <div class="card-header" style="display: flex; justify-content: space-between;">
+                    <div>
+                        <img src="{{url_for('static', filename='/Image/profile_image.png')}}" draggable="false" class="img-fluid" width="50" height="50">
+                        {{ row["first_name"] }} {{ row["last_name"] }}
+                    </div>
+                    <div>
+                        {% if row["favorite"] == 1 %}
+                            <button type="button"  class="btn btn-primary" disabled>In Favorites</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-primary">Add to Favorites</button>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="row row-cols-2">
+                        {% if row["company"] %}
+                            <div class="col-6">
+                                <p class="card-text">
+                                    Company: {{ row["company"] }}
+                                </p>
+                            </div>
+                        {% endif %}
+
+                        {% if row["job_title"] %}
+                            <div class="col-6">
+                                <p class="card-text">
+                                    Job title: {{ row["job_title"] }}
+                                </p>
+                            </div>
+                        {% endif %}
+
+                        {% if row["email"] %}
+                            <div class="col-6">
+                                <p class="card-text">
+                                    Email: {{ row["email"] }}
+                                </p>
+                            </div>
+                        {% endif %}
+
+                        {% if row["phone_primary"] %}
+                            <div class="col-6">
+                                <p class="card-text">
+                                    Primary phone number: {{ row["phone_primary"] }}
+                                </p>
+                            </div>
+                        {% endif %}
+
+                        {% if row["phone_secondary"] %}
+                            <div class="col-6">
+                                <p class="card-text">
+                                    Secondary phone: {{ row["phone_secondary"] }}
+                                </p>
+                            </div>
+                        {% endif %}
+
+                        {% if row["notes"] %}
+                            <div class="col-6">
+                                <p class="card-text">
+                                    Notes: {{ row["notes"] }}
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function changeClass(button) {
+            button.setAttribute("disabled", true);
+            button.innerText = "In Favorites";
+        }
+    </script>
+{% endfor %}
+
+
+
+{% endblock %}

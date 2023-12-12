@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %} Add Contact {% endblock %}
+
+{% block main %}
+
+<div class="container col-md-6">
+    <form action="/add" method="post" class="row g-3">
+        <div class="col-auto">
+            <img src="{{url_for('static', filename='/Image/profile_image.png')}}" draggable="false" alt="" width="194" height="194" style="text-align: center;">
+        </div>
+        <div class="col-9 row g-4">
+            <div class="col-12 form-floating">
+            <input type="text" name="first_name" class="form-control" id="first_name" placeholder="John">
+            <label for="first_name" class="form-label input">First Name</label>
+            </div>
+            <div class="col-12 form-floating">
+            <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Harvard">
+            <label for="last_name" class="form-label input">Last Name</label>
+            </div>
+        </div>
+
+        <div class="col-md-6 form-floating">
+            <input type="text" name="company" class="form-control" id="company" placeholder="Google">
+            <label for="company" class="form-label input">Company</label>
+        </div>
+
+        <div class="col-md-6 form-floating">
+            <input type="text" name="job_title" class="form-control" id="job_title" placeholder="Senior Software Engineer">
+            <label for="job_title" class="form-label input">Job Title</label>
+        </div>
+
+        <div class="col-12 form-floating">
+            <input type="email" name="email" class="form-control" id="email" placeholder="user@example.com">
+            <label for="email" class="form-label input">Email</label>
+        </div>
+
+        <div class="col-md-6">
+            <label for="phone_primary" class="form-label input">Phone (primary)</label>
+            <input type="tel" name="phone_primary" class="form-control form-control-lg" id="phone_primary">
+        </div>
+
+        <div class="col-md-6">
+            <label for="phone_secondary" class="form-label input">Phone (secondary)</label>
+            <input type="tel" name="phone_secondary" class="form-control form-control-lg" id="phone_secondary">
+        </div>
+
+        <div class="col-12 form-floating">
+            <textarea class="form-control" name="notes" id="notes" placeholder="Leave a note here" style="height: 100px; resize: none;"></textarea>
+            <label for="note" class="form-label input">Notes</label>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary btn-lg">Create Contact</button>
+    </form>
+</div>
+
+<script>
+    const phoneInputField = document.querySelector("#phone_primary");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+    const phoneInputField2 = document.querySelector("#phone_secondary");
+    const phoneInput2 = window.intlTelInput(phoneInputField2, {
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+</script>
+{% endblock %}
